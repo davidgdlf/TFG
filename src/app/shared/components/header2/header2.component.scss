@@ -1,0 +1,28 @@
+.header {
+    --background: #000000;
+    height: auto; /* Permitir que el alto se ajuste automáticamente al contenido */
+    padding: 20px 0; /* Ajustar el espacio vertical */
+  }
+  
+  .logo-and-title {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar horizontalmente */
+    padding: 20px; /* Ajustar el espacio alrededor del logo y título */
+  }
+  
+  .logo-container {
+    width: 10vw; /* Ancho relativo al ancho de la ventana */
+    max-width: 75px; /* Ancho máximo */
+    height: auto; /* Altura automática */
+  }
+  
+  .title {
+    font-size: 4vw; /* Tamaño de fuente relativo al ancho de la ventana */
+    font-weight: bold;
+    color: #3498db;
+    text-shadow: 0 0 10px rgba(231, 26, 77, 0.5); /* Ajustar la sombra del texto */
+    text-align: center;
+    margin-left: 10px; /* Espacio entre el logo y el título */
+  }
+  

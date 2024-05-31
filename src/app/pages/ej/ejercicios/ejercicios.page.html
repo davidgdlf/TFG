@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-card *ngIf="currentLevel; else noMoreLevels">
+    <ion-card-header>
+      <ion-card-title (mouseenter)="voiceService.speak(currentLevel.title, 'en-US')">{{ currentLevel.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let exercise of currentLevel.exercises; let i = index" class="exercise-item">
+          <div class="exercise-container">
+            <ion-label class="exercise-question" (mouseenter)="voiceService.speak(exercise.question, 'es-ES')">{{ exercise.question }}</ion-label>
+            <ion-input class="exercise-answer" [(ngModel)]="exercise.userAnswer" [disabled]="exercise.correct" placeholder="Your answer"
+              type="text" (keyup.enter)="checkAndNext(exercise, i)" (mouseenter)="voiceService.speak(exercise.userAnswer, 'en-US')">
+            </ion-input>
+            <div class="exercise-buttons">
+              <ion-button (click)="checkAndNext(exercise, i)" [disabled]="exercise.correct" (mouseenter)="voiceService.speak('Check', 'en-US')">
+                Check
+              </ion-button>
+              <ion-button (click)="startVoiceRecognition(i)" [disabled]="exercise.correct" (mouseenter)="voiceService.speak('Talk', 'en-US')">
+                🎤
+              </ion-button>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+      <!-- Botón para reiniciar progreso debajo de los ejercicios -->
+      <ion-button expand="full" class="reset-button" (click)="resetProgress()" (mouseenter)="voiceService.speak('Reset progress', 'en-US')">Reset progress</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ng-template #noMoreLevels>
+    <ion-card>
+      <ion-card-content>
+        ¡Congratulations, you completed all levels! Soon new updates.
+        <ion-button class="reset-button" (click)="resetProgress()" (mouseenter)="voiceService.speak('Reset', 'en-US')">Reset</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>

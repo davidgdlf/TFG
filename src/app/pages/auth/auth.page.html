@@ -1,0 +1,46 @@
+<app-header2></app-header2>
+<ion-content>
+
+  <div class="d-flex-center">
+
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+      <app-custom-input 
+        autocomplete="email"
+        icon="mail-outline"
+        [control]="form.controls.email"
+        type="email"
+        label="email"
+        (mouseover)="speakText('Email', 'en-US')">
+      </app-custom-input>
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div class="error-message" *ngIf="form.controls.email.errors?.['required']" (mouseenter)="voiceSvc.speak('You need to introduce an email', 'en-US')">You need to introduce an email</div>
+        <div class="error-message" *ngIf="form.controls.email.errors?.['email']" (mouseenter)="voiceSvc.speak('Introduce a correct email', 'en-US')">Introduce a correct email</div>
+      </div>
+
+      <app-custom-input
+        [control]="form.controls.password"
+        icon="lock-closed-outline"
+        type="password"
+        label="Password"
+        (mouseover)="speakText('Password', 'en-US')">
+      </app-custom-input>
+      <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div class="error-message" *ngIf="form.controls.password.errors?.['required']" (mouseenter)="voiceSvc.speak('You need to write a password', 'en-US')">You need to write a password</div>
+      </div>
+
+      <p class="ion-text-end" routerLink="forgot-password" (mouseover)="speakText('Forgot your password?', 'en-US')">Forgot your password?</p>
+
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" (mouseover)="speakText('Sign in', 'en-US')">
+        Sign in
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button class="ion-margin-top" [routerLink]="['/auth/sing-up']" routerLinkActive="router-link-active" expand="block" mode="ios" fill="outline" (mouseover)="speakText('Registration', 'en-US')">
+        Registration
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
+
+</ion-content>

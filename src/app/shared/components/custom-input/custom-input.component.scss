@@ -1,0 +1,41 @@
+.custom-input {
+    ion-item {
+      --border-color: #ccc; // Color del borde del ion-item
+      --placeholder-color: #999; // Color del marcador de posición
+  
+      border-bottom: 1px solid var(--border-color);
+      padding: 0; // Eliminar el relleno predeterminado del ion-item
+  
+      ion-input {
+        --color: #000; // Color del texto
+        --placeholder-color: var(--placeholder-color);
+  
+        font-size: 16px; // Tamaño de texto del ion-input
+      }
+  
+      ion-button {
+        --color: #007bff; // Color del icono del botón
+  
+        ion-icon {
+          --color: #007bff; // Color del icono del botón
+  
+          font-size: 20px; // Tamaño de icono del botón
+        }
+      }
+  
+      &.item-has-focus {
+        --border-color: #007bff; // Cambiar el color del borde al enfocar el ion-item
+      }
+    }
+  
+    .password-toggle-button {
+      --color: #007bff; // Color del icono del botón
+  
+      ion-icon {
+        --color: #007bff; // Color del icono del botón
+  
+        font-size: 20px; // Tamaño de icono del botón
+      }
+    }
+  }
+  

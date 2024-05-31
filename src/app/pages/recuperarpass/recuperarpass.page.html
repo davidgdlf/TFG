@@ -1,0 +1,27 @@
+<app-header2 backButton="/perfil"></app-header2>
+<ion-content>
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+      <app-custom-input 
+        autocomplete="email"
+        icon="mail-outline"
+        [control]="form.controls.email"
+        type="email"
+        label="email"
+        (mouseenter)="voiceSvc.speak('Write your email', 'en-US')"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div class="error-message" *ngIf="form.controls.email.errors?.['required']" (mouseenter)="voiceSvc.speak('You need to introduce an email', 'en-US')">You need to introduce an email</div>
+        <div class="error-message" *ngIf="form.controls.email.errors?.['email']" (mouseenter)="voiceSvc.speak('Introduce a correct email', 'en-US')">Introduce a correct email</div>
+      </div>
+
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid" (mouseenter)="voiceSvc.speak('Change password', 'en-US')">
+        Change Password
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+      
+    </form>
+  </div>
+</ion-content>

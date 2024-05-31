@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" class="header">
+  <div class="logo-and-title">
+    <div class="logo-container">
+      <img src="/assets/logo.png" alt="Logo de tu App">
+    </div>
+    <ion-title class="title">EDUBLIND</ion-title>
+  </div>
+
+  <ion-toolbar>
+    <ion-buttons slot="end" class="menu-buttons">
+      <ion-button class="menu-button" (click)="goToEj()" (mouseenter)="voiceService.speak('Exercises', 'en-US')">
+        <ion-icon name="barbell-outline"></ion-icon>
+        Exercises
+      </ion-button>
+
+      <ion-button class="menu-button" (click)="goToRanking()" (mouseenter)="voiceService.speak('Ranking', 'en-US')">
+        <ion-icon name="trophy-outline"></ion-icon>
+        Ranking
+      </ion-button>
+
+      <ion-button class="menu-button" (click)="goToPerfil()" (mouseenter)="voiceService.speak('Profile', 'en-US')">
+        <ion-icon name="information-circle"></ion-icon>
+        Profile
+      </ion-button>
+
+      <ion-button class="menu-button" (click)="signOut()" (mouseenter)="voiceService.speak('Sign Out', 'en-US')">
+        <ion-icon name="log-in"></ion-icon>
+        Sign Out
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

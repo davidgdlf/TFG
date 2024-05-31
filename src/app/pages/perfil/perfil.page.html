@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <h1 (mouseenter)="voiceService.speak('Profile Information', 'en-US')">Profile Information</h1>
+
+    <ion-avatar *ngIf="user()?.image" class="profile-avatar">
+      <img [src]="user()?.image" alt="Profile Picture" (mouseenter)="voiceService.speak('Profile photo', 'en-US')"/>
+    </ion-avatar>
+
+    <ion-icon *ngIf="!user()?.image" name="person-circle-outline" class="profile-avatar" (mouseenter)="voiceService.speak('Profile Icon', 'en-US')"></ion-icon>
+
+    <ion-button (click)="takeImage()" class="profile-button" mode="ios" shape="round" size="small">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-button>
+
+    <div class="profile-info">
+      <ion-input [(ngModel)]="user().name" class="profile-input" readonly (mouseenter)="voiceService.speak(' ' + user().name, 'en-US')"></ion-input>
+      <ion-input [(ngModel)]="user().email" class="profile-input" readonly (mouseenter)="voiceService.speak(' ' + user().email, 'en-US')"></ion-input>
+      <div class="user-progress" (mouseenter)="voiceService.speak(noProgressFound ? 'No progress found, please start your journey' : 'You are on level ' + (currentLevelIndex + 1) + ': ' + currentLevelTitle, 'en-US')">
+        <p *ngIf="!noProgressFound">You are on level {{ currentLevelIndex + 1 }}: {{ currentLevelTitle }}</p>
+        <p *ngIf="noProgressFound">No progress found, please start your journey</p>
+      </div>
+      <div class="change-password">
+        <p routerLink="/recuperarpass" class="forgot-password-link" (mouseenter)="voiceService.speak('Do you want to change the password?', 'en-US')">Do you want to change the password?</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

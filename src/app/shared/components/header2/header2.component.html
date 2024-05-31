@@ -1,0 +1,17 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button *ngIf="backButton" [defaultHref]="backButton" ></ion-back-button>
+    </ion-buttons>
+    <!-- Logo y título arriba del header -->
+    <div class="logo-and-title">
+      <div class="logo-container">
+        <img src="/assets/logo.png" alt="Logo de tu App">
+      </div>
+      <ion-title class="title">
+        EDUBLIND
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>

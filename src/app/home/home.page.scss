@@ -1,0 +1,51 @@
+@keyframes pulse {
+  0% {
+    transform: scale(0.8) rotate(0deg); /* Añadimos rotación inicial */
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1) rotate(180deg); /* Rotamos 180 grados a la mitad de la animación */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) rotate(360deg); /* Rotamos 360 grados al final de la animación */
+    opacity: 0.5;
+  }
+}
+
+.header {
+  --background: transparent;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: bold;
+  color: #3498db;
+  text-shadow: 8px 8px 12px rgba(231, 26, 77, 0.2);
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loader {
+  width: 140px;
+  height: 140px; 
+  border: 15px solid #3498db;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.5s; 
+  margin-bottom: 30px; 
+}
+
+.loading-text {
+  font-size: 30px;
+  margin-top: 20px;
+  color: #f1cb1e;
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EduBlind</string>
+    <string name="title_activity_main">EduBlind</string>
+    <string name="package_name">com.Edublind.app</string>
+    <string name="custom_url_scheme">com.Edublind.app</string>
+</resources>

@@ -1,0 +1,12 @@
+{
+  "name": "TFG",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "defaults": {
+    "serveOptions": {
+      "browser": "chrome"
+    }
+  }
+}

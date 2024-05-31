@@ -1,0 +1,234 @@
+ion-content {
+  --ion-background-color: #1561b9;
+}
+
+.ranking-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  flex-wrap: wrap; /* Asegura que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.ranking-card-wrapper {
+  flex: 1;
+  min-width: 300px; /* Ajusta el tamaño mínimo para el ranking card */
+  max-width: 100%; /* Asegura que se adapte al ancho completo en pantallas pequeñas */
+  margin-bottom: 16px; /* Añade margen en la parte inferior */
+}
+
+.podium-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px; /* Ajusta el tamaño mínimo para el podio */
+  max-width: 100%; /* Asegura que se adapte al ancho completo en pantallas pequeñas */
+  margin-bottom: 16px; /* Añade margen en la parte inferior */
+}
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  height: 300px; /* Altura total del podio aumentada */
+}
+
+.podium-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 8px; /* Ajusta el margen para reducir el espacio */
+}
+
+.podium-step.first .podium-box {
+  height: 150px; /* Altura aumentada */
+  background-color: #FFD700; /* Oro */
+}
+
+.podium-step.second .podium-box {
+  height: 120px; /* Altura aumentada */
+  background-color: #C0C0C0; /* Plata */
+}
+
+.podium-step.third .podium-box {
+  height: 90px; /* Altura aumentada */
+  background-color: #CD7F32; /* Bronce */
+}
+
+.podium-box {
+  width: 80px; /* Ancho reducido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.podium-avatar {
+  width: 60px; /* Tamaño reducido */
+  height: 60px; /* Tamaño reducido */
+  border-radius: 50%;
+  position: absolute;
+  top: -70px; /* Ajuste para el nuevo tamaño */
+}
+
+.default-avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ccc; /* Color de fondo para el icono predeterminado */
+  position: absolute;
+  top: -70px;
+}
+
+.default-avatar-icon {
+  font-size: 40px;
+  color: #fff; /* Color del icono predeterminado */
+}
+
+.podium-label {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.ranking-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-list {
+  width: 100%;
+  max-width: 600px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ranking-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.ranking-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.ranking-number {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+}
+
+ion-icon {
+  font-size: 32px;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 16px;
+}
+
+.default-avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc; /* Color de fondo para el icono predeterminado */
+  margin: 0 16px;
+}
+
+/* Agrega este estilo para ajustar el tamaño del icono predeterminado */
+.default-avatar-icon {
+  font-size: 50px; /* Tamaño del icono */
+  color: #c0c0c0; /* Color del icono */
+}
+
+ion-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 16px;
+}
+
+
+.ranking-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.progress-bar-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #0044ff;
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .ranking-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .podium-container {
+    order: -1; /* Mueve el podio encima del ranking en pantallas pequeñas */
+    margin-bottom: 16px;
+  }
+}

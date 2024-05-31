@@ -1,0 +1,108 @@
+ion-content {
+  ion-list {
+    ion-item {
+      --padding-start: 0;
+      --padding-end: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      .exercise-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        .exercise-question {
+          flex: 2;
+          margin-right: 16px;
+        }
+
+        .exercise-answer {
+          flex: 3;
+          max-width: 70%;
+          margin-right: 16px;
+        }
+
+        .exercise-buttons {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          ion-button {
+            width: 100px;
+            height: auto;
+            margin-bottom: 8px;
+            --background: #3880ff;
+            --color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  .toast-success {
+    --background: green;
+    --color: white;
+  }
+
+  .toast-danger {
+    --background: red;
+    --color: white;
+  }
+
+  ion-input[disabled] {
+    --background: #f2f2f2;
+    --color: #999999;
+  }
+
+  ion-button.reset-button {
+    --background: #ff4757;
+    --color: white;
+    font-size: 1.5rem; /* Texto grande */
+    height: 4rem; /* Botón grande */
+    width: 100%; /* Botón de ancho completo */
+    --border-radius: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  ion-button.reset-button:hover {
+    --background: #ff6b81;
+  }
+
+  ion-button.reset-button:focus {
+    --box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    ion-list {
+      ion-item {
+        .exercise-container {
+          flex-direction: column;
+          align-items: stretch;
+
+          .exercise-question {
+            margin-bottom: 16px;
+          }
+
+          .exercise-answer {
+            margin-bottom: 16px;
+          }
+
+          .exercise-buttons {
+            flex-direction: row;
+            justify-content: space-around; /* Cambiado a space-around para reducir el espacio entre los botones */
+
+            ion-button {
+              width: auto;
+              margin-bottom: 0;
+              margin-right: 8px; /* Añadido un margen derecho pequeño para separar los botones */
+            }
+          }
+        }
+      }
+    }
+  }
+}

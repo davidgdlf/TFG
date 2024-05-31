@@ -1,0 +1,78 @@
+<app-header></app-header>
+<ion-content class="ranking-content">
+  <div class="ranking-wrapper">
+    <div class="podium-container">
+      <div class="podium">
+        <div class="podium-step second" (mouseenter)="speak(rankedUsers[1]?.name + ' is second')">
+          <div class="podium-box">
+            <ion-avatar class="podium-avatar">
+              <img *ngIf="rankedUsers[1]?.image; else defaultAvatar" [src]="rankedUsers[1]?.image" alt="{{ rankedUsers[1]?.name }}'s profile picture">
+              <ng-template #defaultAvatar>
+                <ion-icon name="person-circle-outline" class="default-avatar-icon"></ion-icon>
+              </ng-template>
+            </ion-avatar>
+            <div class="podium-label">2nd</div>
+          </div>
+        </div>
+        <div class="podium-step first" (mouseenter)="speak(rankedUsers[0]?.name + ' is first')">
+          <div class="podium-box">
+            <ion-avatar class="podium-avatar">
+              <img *ngIf="rankedUsers[0]?.image; else defaultAvatar" [src]="rankedUsers[0]?.image" alt="{{ rankedUsers[0]?.name }}'s profile picture">
+              <ng-template #defaultAvatar>
+                <ion-icon name="person-circle-outline" class="default-avatar-icon"></ion-icon>
+              </ng-template>
+            </ion-avatar>
+            <div class="podium-label">1st</div>
+          </div>
+        </div>
+        <div class="podium-step third" (mouseenter)="speak(rankedUsers[2]?.name + ' is third')">
+          <div class="podium-box">
+            <ion-avatar class="podium-avatar">
+              <img *ngIf="rankedUsers[2]?.image; else defaultAvatar" [src]="rankedUsers[2]?.image" alt="{{ rankedUsers[2]?.name }}'s profile picture">
+              <ng-template #defaultAvatar>
+                <ion-icon name="person-circle-outline" class="default-avatar-icon"></ion-icon>
+              </ng-template>
+            </ion-avatar>
+            <div class="podium-label">3rd</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ranking-card-wrapper">
+      <ion-card class="ranking-card">
+        <ion-card-header>
+          <ion-card-title class="title" (mouseenter)="speak('Ranking of users')">Ranking of Users</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let user of rankedUsers; let i = index" class="ranking-item">
+              <div class="ranking-container">
+                <div class="ranking-number">
+                  <ng-container *ngIf="i < 3">
+                    <ion-icon [name]="getMedalIcon(i)" [style.color]="getMedalColor(i)"></ion-icon>
+                  </ng-container>
+                  <ng-container *ngIf="i >= 3">
+                    {{ i + 1 }}
+                  </ng-container>
+                </div>
+                <ion-avatar class="profile-avatar">
+                  <img *ngIf="user.image; else defaultAvatar" [src]="user.image" alt="{{ user.name }}'s profile picture">
+                  <ng-template #defaultAvatar>
+                    <ion-icon name="person-circle-outline" class="default-avatar-icon"></ion-icon>
+                  </ng-template>
+                </ion-avatar>
+                <ion-label class="ranking-name" (mouseenter)="speak(user.name + ', level: ' + user.currentLevelIndex)">
+                  <h2>{{ user.name }}</h2>
+                  <p>Level: {{ user.currentLevelIndex }}</p>
+                </ion-label>
+                <div class="progress-bar-container">
+                  <div class="progress-bar" [style.width.%]="getProgressPercentage(user.currentLevelIndex)"></div>
+                </div>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
